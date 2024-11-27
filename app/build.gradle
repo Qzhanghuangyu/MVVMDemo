@@ -73,11 +73,8 @@ dependencies {
 //    implementation(libs.androidx.lifecycle.process)
 
 
-
-
-
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
-
-
+    implementation(project(":architecture"))
+    implementation 'com.kunminx.player:player:4.3.0'
 
 }

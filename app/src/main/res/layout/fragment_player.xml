@@ -5,13 +5,13 @@
     <data>
         <variable
             name="vm"
-            type="com.zhang.mymvvm.ui.page.SearchFragment" />
+            type="com.zhang.mymvvm.ui.page.PlayerFragment" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.page.SearchFragment">
+        tools:context=".ui.page.PlayerFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <TextView

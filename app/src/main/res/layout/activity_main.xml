@@ -9,13 +9,15 @@
 
         <variable
             name="vm"
-            type="com.zhang.mymvvm.bridge.state.MainViewModel" />
+            type="com.zhang.mymvvm.bridge.state.MainActivityViewModel" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/dl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        allowDrawerOpen="@{vm.allowDrawerOpen}"
+        isOpenDrawer="@{vm.openDrawer}"
         tools:context=".MainActivity">
 
         <com.sothree.slidinguppanel.SlidingUpPanelLayout
@@ -43,13 +45,24 @@
                 android:layout_width="match_parent"
                 android:id="@+id/slide_fragment_host"
                 android:name="androidx.navigation.fragment.NavHostFragment"
-
+                android:layout_gravity="start"
+                android:fitsSystemWindows="true"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_slide"
                 >
 
 
             </fragment>
         </com.sothree.slidinguppanel.SlidingUpPanelLayout>
-
+        <fragment
+            android:id="@+id/drawer_fragment_host"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="330dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_drawer" />
 
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>
