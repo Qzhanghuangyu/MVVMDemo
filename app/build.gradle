@@ -5,16 +5,16 @@ plugins {
 
 android {
     namespace 'com.zhang.mymvvm'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.zhang.mymvvm"
         minSdk 24
-        targetSdk 34
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -30,16 +30,54 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
+
+    dataBinding {
+        enable = true
+    }
+
+
+
 }
 
 dependencies {
 
+
+    // Views/Fragments integration
+    implementation("androidx.navigation:navigation-fragment:2.8.4")
+    implementation("androidx.navigation:navigation-ui:2.8.4")
+    implementation libs.material
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
-    implementation libs.material
     implementation libs.androidx.activity
     implementation libs.androidx.constraintlayout
-    testImplementation libs.junit
-    androidTestImplementation libs.androidx.junit
-    androidTestImplementation libs.androidx.espresso.core
+
+
+
+//
+//    // ViewModel
+//    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+//    // LiveData
+//    implementation(libs.androidx.lifecycle.livedata.ktx)
+//
+//
+//    // Saved state module for ViewModel
+//    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+
+
+
+//
+//    // optional - helpers for implementing LifecycleOwner in a Service
+//    implementation(libs.androidx.lifecycle.service)
+//
+//    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+//    implementation(libs.androidx.lifecycle.process)
+
+
+
+
+
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+
+
+
 }
