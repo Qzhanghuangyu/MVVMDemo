@@ -1,5 +1,4 @@
-package com.xiangxue.architecture.utils
-
+package com.zhang.architecture.utils
 import android.Manifest.permission
 import android.R
 import android.annotation.SuppressLint

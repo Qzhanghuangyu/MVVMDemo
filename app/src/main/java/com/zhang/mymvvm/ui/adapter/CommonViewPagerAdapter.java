@@ -1,5 +1,6 @@
-package com.zhang.architecture.ui.adapter;
+package com.zhang.mymvvm.ui.adapter;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -35,6 +36,7 @@ public class CommonViewPagerAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
+
         return container.getChildAt(position);
     }
 
@@ -48,6 +50,7 @@ public class CommonViewPagerAdapter extends PagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
+
         return title[position];
     }
 }

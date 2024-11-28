@@ -1,8 +1,8 @@
-package com.xiangxue.architecture.utils
-
+package com.zhang.architecture.utils
 import android.content.res.Resources
 import android.util.DisplayMetrics
 import android.util.Log
+import com.zhang.architecture.utils.Utils
 import java.lang.reflect.Field
 
 /**

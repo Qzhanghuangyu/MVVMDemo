@@ -1,5 +1,4 @@
-package com.xiangxue.architecture.utils
-
+package com.zhang.architecture.utils
 import android.Manifest.permission
 import android.annotation.SuppressLint
 import android.content.Context
@@ -13,6 +12,8 @@ import android.telephony.TelephonyManager
 import android.text.format.Formatter
 import android.util.Log
 import androidx.annotation.RequiresPermission
+import com.zhang.architecture.utils.ShellUtils
+import com.zhang.architecture.utils.Utils
 import java.net.InetAddress
 import java.net.NetworkInterface
 import java.net.SocketException

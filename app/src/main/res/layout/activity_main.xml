@@ -20,7 +20,7 @@
         isOpenDrawer="@{vm.openDrawer}"
         tools:context=".MainActivity">
 
-        <com.sothree.slidinguppanel.SlidingUpPanelLayout
+        <androidx.slidingpanelayout.widget.SlidingPaneLayout
             android:id="@+id/sliding_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -53,7 +53,7 @@
 
 
             </fragment>
-        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+        </androidx.slidingpanelayout.widget.SlidingPaneLayout>
         <fragment
             android:id="@+id/drawer_fragment_host"
             android:name="androidx.navigation.fragment.NavHostFragment"

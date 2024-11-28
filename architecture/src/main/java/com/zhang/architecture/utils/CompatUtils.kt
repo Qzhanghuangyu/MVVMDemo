@@ -1,5 +1,4 @@
-package com.xiangxue.architecture.utils
-
+package com.zhang.architecture.utils
 import android.content.ClipData
 import android.content.Intent
 import android.graphics.Bitmap

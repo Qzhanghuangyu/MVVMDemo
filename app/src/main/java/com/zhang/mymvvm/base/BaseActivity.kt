@@ -7,11 +7,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.xiangxue.architecture.bridge.callback.SharedViewModel
-import com.xiangxue.architecture.data.manager.NetworkStateManager
-import com.xiangxue.architecture.utils.AdaptScreenUtils
-import com.xiangxue.architecture.utils.BarUtils
-import com.xiangxue.architecture.utils.ScreenUtils
+import com.zhang.architecture.data.manager.NetworkStateManager
+import com.zhang.architecture.utils.AdaptScreenUtils
+import com.zhang.architecture.utils.BarUtils
+import com.zhang.architecture.utils.ScreenUtils
+
 
 open class BaseActivity : AppCompatActivity() {
 

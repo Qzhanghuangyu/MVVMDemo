@@ -1,5 +1,4 @@
-package com.xiangxue.architecture.data.manager
-
+package com.zhang.architecture.data.manager
 import android.annotation.SuppressLint
 import android.content.IntentFilter
 import android.net.ConnectivityManager
@@ -7,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import com.xiangxue.architecture.bridge.callback.UnPeekLiveData
+import com.zhang.architecture.bridge.callback.UnPeekLiveData
 import java.util.*
 
 /**

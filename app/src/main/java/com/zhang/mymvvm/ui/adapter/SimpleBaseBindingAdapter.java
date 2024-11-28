@@ -1,4 +1,4 @@
-package com.zhang.architecture.ui.adapter;
+package com.zhang.mymvvm.ui.adapter;
 
 import android.content.Context;
 

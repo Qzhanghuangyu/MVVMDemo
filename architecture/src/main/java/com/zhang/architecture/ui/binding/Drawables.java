@@ -16,14 +16,15 @@ import java.lang.annotation.Target;
 import java.lang.reflect.Field;
 
 import static java.lang.annotation.ElementType.FIELD;
-import static java.lang.annotation.ElementType.PARAMETER;import com.xiangxue.architecture.ui.binding.ProxyDrawable;
+import static java.lang.annotation.ElementType.PARAMETER;
+
+import com.zhang.architecture.ui.binding.ProxyDrawable;
 
 /**
  * TODO 同学们一定要看哦，才能知道为什么，那么多同学一直编译不通过，各种错误，真正的原因是在这里哦，这里和布局建立绑定的呢
- *
+ * <p>
  * 此类 和 fragment_main.xml   各个属性建立绑定关系
  * 此类 和 fragment_search.xml 各个属性建立了绑定的关系
- *
  */
 public class Drawables {
     private static final String TAG = "Drawables";
@@ -935,14 +936,16 @@ public class Drawables {
         int RECTANGLE = GradientDrawable.RECTANGLE;
         int OVAL = GradientDrawable.OVAL;
 
-         /** 画线时，有几点特性必须要知道的：
+        /**
+         * 画线时，有几点特性必须要知道的：
          * 1. 只能画水平线，画不了竖线；
          * 2. 线的高度是通过stroke的android:width属性设置的；
          * 3. size的android:height属性定义的是整个形状区域的高度；
          * 4. size的height必须大于stroke的width，否则，线无法显示；
          * 5. 线在整个形状区域中是居中显示的；
          * 6. 线左右两边会留有空白间距，线越粗，空白越大；
-         * 7. 引用虚线的view需要添加属性android:layerType，值设为"software"，否则显示不了虚线。*/
+         * 7. 引用虚线的view需要添加属性android:layerType，值设为"software"，否则显示不了虚线。
+         */
 
 
         int LINE = GradientDrawable.LINE;

@@ -1,10 +1,9 @@
-package com.xiangxue.architecture.ui.binding
+package com.zhang.architecture.ui.binding
 
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.StateListDrawable
 
-// 同学们，此类只给 Drawables 服务哦
-class ProxyDrawable : StateListDrawable() {
+class ProxyDrawable :StateListDrawable() {
     var originDrawable: Drawable? = null
         private set
 

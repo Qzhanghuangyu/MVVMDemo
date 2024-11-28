@@ -1,4 +1,5 @@
-package com.xiangxue.architecture.utils
+package com.zhang.architecture.utils
+import com.zhang.architecture.utils.Utils
 
 /**
  * <pre>

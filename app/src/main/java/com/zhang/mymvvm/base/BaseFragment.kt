@@ -9,9 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.xiangxue.architecture.bridge.callback.SharedViewModel
 
-class BaseFragment : Fragment() {
+open class BaseFragment : Fragment() {
 
     protected var mActivity: AppCompatActivity? = null
     protected lateinit var mSharedViewModel: SharedViewModel
@@ -76,10 +75,10 @@ class BaseFragment : Fragment() {
     }
 
     /**
-     * 对外暴露 SharedViewModel，所有的 子fragment都可以使用 共享的SharedViewModel
+     * 对外暴露 com.zhang.mymvvm.base.SharedViewModel，所有的 子fragment都可以使用 共享的SharedViewModel
      * @return
      */
-    /*fun getSharedViewModel(): SharedViewModel {
+    /*fun getSharedViewModel(): com.zhang.mymvvm.base.SharedViewModel {
         return sharedViewModel
     }*/
 }

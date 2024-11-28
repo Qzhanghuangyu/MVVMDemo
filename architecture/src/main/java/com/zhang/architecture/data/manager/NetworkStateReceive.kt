@@ -1,12 +1,11 @@
-package com.xiangxue.architecture.data.manager
-
+package com.zhang.architecture.data.manager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.widget.Toast
-import com.xiangxue.architecture.utils.NetworkUtils
 import com.zhang.architecture.R
+import com.zhang.architecture.utils.NetworkUtils
 
 /**
  * 监听网络状态的广播接收者

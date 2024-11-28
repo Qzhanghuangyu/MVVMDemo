@@ -1,9 +1,7 @@
-package com.xiangxue.architecture.utils
-
+package com.zhang.architecture.utils
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
-import com.xiangxue.architecture.utils.SPUtils
 import java.util.*
 
 /**

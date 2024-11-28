@@ -1,4 +1,4 @@
-package com.xiangxue.architecture.data.manager
+package com.zhang.architecture.data.manager
 
 /**
  * 网络状态的实体bean
