@@ -1,5 +1,6 @@
 package com.zhang.mymvvm.ui.page
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.zhang.mymvvm.R
 import com.zhang.mymvvm.base.BaseFragment
 import com.zhang.mymvvm.bridge.data.bean.TestAlbum
+import com.zhang.mymvvm.bridge.player.PlayerManager
 import com.zhang.mymvvm.bridge.state.MainViewModel
 import com.zhang.mymvvm.bridge.state.MusicRequestViewModel
 import com.zhang.mymvvm.databinding.AdapterPlayItemBinding
@@ -67,34 +69,50 @@ class MainFragment : BaseFragment() {
                 Glide.with(binding?.ivCover!!.context).load(item?.coverImg)
                     .into(binding.ivCover) // 左右边的图片
                 // 歌曲下标记录
-                // val currentIndex = PlayerManager.instance.albumIndex // 歌曲下标记录
+                 val currentIndex = PlayerManager.instance.albumIndex // 歌曲下标记录
 
                 // 播放的标记
-                /*binding.ivPlayStatus.setColor(
+                binding.ivPlayStatus.setColor(
                     if (currentIndex == holder ?.adapterPosition) resources.getColor(R.color.colorAccent) else Color.TRANSPARENT
-                ) // 播放的时候，右变状态图标就是红色， 如果对不上的时候，就是没有*/
+                ) // 播放的时候，右变状态图标就是红色， 如果对不上的时候，就是没有
 
                 binding.rootView.setOnClickListener {
                     Toast.makeText(context, "播放音乐", Toast.LENGTH_LONG).show()
 
+                      PlayerManager.instance.playAudio(holder !!.adapterPosition)
                 }
 
             }
 
         }
 
+        PlayerManager.instance.changeMusicResult.observe(viewLifecycleOwner, {
+            adapter?.notifyDataSetChanged()
+        })
+        // 请求数据
+        // 保证我们列表有数据（music list）
+        if (PlayerManager.instance.album == null) {
+            musicRequestViewModel!!.requestFreeMusic()
+        }
+
         fragmentMainBinding!!.rv.adapter = adapter
 
-
+        musicRequestViewModel!!.requestFreeMusic()
         musicRequestViewModel!!.freeMusicesLiveData!!.observe(viewLifecycleOwner,
             { musicAlbum: TestAlbum? ->
                 if (musicAlbum != null && musicAlbum.musics != null) {
                     adapter?.list = musicAlbum.musics
                     adapter?.notifyDataSetChanged()
+
+                    // 播放相关的业务需要这个数据
+                    if (PlayerManager.instance.album == null ||
+                        PlayerManager.instance.album !!.albumId != musicAlbum.albumId) {
+                        PlayerManager.instance.loadAlbum(musicAlbum)
+                    }
                 }
 
             })
-        musicRequestViewModel!!.requestFreeMusic()
+
     }
 
     inner class ClickProxy {

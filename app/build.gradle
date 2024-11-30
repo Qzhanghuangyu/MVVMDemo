@@ -54,32 +54,31 @@ dependencies {
     implementation libs.androidx.constraintlayout
 
     implementation 'com.google.android.material:material:1.2.0-alpha05'
-//
-//    // ViewModel
-//    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-//    // LiveData
-//    implementation(libs.androidx.lifecycle.livedata.ktx)
-//
-//
-//    // Saved state module for ViewModel
-//    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
-//
 
 
-//
-//    // optional - helpers for implementing LifecycleOwner in a Service
-//    implementation(libs.androidx.lifecycle.service)
-//
-//    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
-//    implementation(libs.androidx.lifecycle.process)
-
-    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    implementation 'com.github.hannesa2:AndroidSlidingUpPanel:4.6.1'
+//    implementation 'com.sothree.slidinguppanel:library:3.4.0'
     implementation(project(":architecture"))
-    implementation 'com.kunminx.player:player:4.3.0'
-    implementation 'com.github.bumptech.glide:glide:4.15.0'  // Glide 最新版本
+    implementation 'com.kunminx.player:player:3.7.0'
+    implementation 'com.github.bumptech.glide:glide:4.15.0'
+//    implementation project(':materialiconlib')  // Glide 最新版本
     kapt 'com.github.bumptech.glide:compiler:4.15.0' // 编译时注解处理器
 
 
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    // Gson Converter，用于解析 JSON 数据（如果你使用 Gson）
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Kotlin 协程依赖
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0'
+
+    // Kotlin 协程 Android 支持（如果你做 Android 开发）
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0'
+
+//    implementation libs.gson
+//    implementation libs.okhttp.loggingInterceptor
+//    implementation libs.kotlin.stdLib
+//    implementation libs.kotlinx.coroutines
+
 }

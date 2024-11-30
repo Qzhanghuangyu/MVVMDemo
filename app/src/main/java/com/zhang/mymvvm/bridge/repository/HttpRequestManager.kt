@@ -10,6 +10,10 @@ import com.zhang.mymvvm.bridge.data.bean.DownloadFile
 import com.zhang.mymvvm.bridge.data.bean.LibraryInfo
 import com.zhang.mymvvm.bridge.data.bean.TestAlbum
 import com.zhang.mymvvm.bridge.data.config.Configs
+import com.zhang.mymvvm.bridge.data.login_register.LoginRegisterResponse
+import com.zhang.mymvvm.bridge.data.login_register.LoginRegisterResponseWrapper
+import com.zhang.mymvvm.bridge.repository.api.WanAndroidAPI
+import com.zhang.mymvvm.bridge.repository.net.APIClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -29,23 +33,21 @@ class HttpRequestManager private constructor() : ILoadRequest, IRemoteRequest {
         private set
 
     override suspend fun getFreeMusic(liveData: MutableLiveData<TestAlbum>?) {
-        withContext(Dispatchers.IO){
-            Log.d(Configs.TAG,Thread.currentThread().name)
-            val gson = Gson()
-            val type = object : TypeToken<TestAlbum?>() {}.type
-            val testAlbum =
-                gson.fromJson<TestAlbum>(Utils.getApp().getString(R.string.free_music_json), type)
 
-            // TODO 在这里可以请求网络
-            // TODO 在这里可以请求网络
-            // TODO 在这里可以请求数据库
-            // .....
-            Log.d("ThreadInfo", "Current thread in getData: ${Thread.currentThread().name}")
-            // 子线程  协程  框架  liveData.postValue
-            //delay(2000)
+        Log.d(Configs.TAG, Thread.currentThread().name)
+        val gson = Gson()
+        val type = object : TypeToken<TestAlbum?>() {}.type
+        val testAlbum =
+            gson.fromJson<TestAlbum>(Utils.getApp().getString(R.string.free_music_json), type)
 
-            liveData!!.postValue(testAlbum)
-        }
+        // TODO 在这里可以请求网络
+        // TODO 在这里可以请求网络
+        // TODO 在这里可以请求数据库
+        // .....
+        // 子线程  协程  框架  liveData.postValue
+        //delay(2000)
+
+        liveData!!.postValue(testAlbum)
 
 
     }
@@ -117,4 +119,15 @@ class HttpRequestManager private constructor() : ILoadRequest, IRemoteRequest {
     companion object {
         val instance = HttpRequestManager()
     }
+
+
+    suspend fun registerAction(userName: String, password: String) =
+        APIClient.instance.instanceRetrofit(WanAndroidAPI::class.java)
+            .registerActionCoroutine(userName, password, password).data
+
+    suspend fun LoginAction(userName: String, password: String) =
+        APIClient.instance.instanceRetrofit(WanAndroidAPI::class.java)
+            .loginActionCoroutine(userName, password).data
+
+
 }

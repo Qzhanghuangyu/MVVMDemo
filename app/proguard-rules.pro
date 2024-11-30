@@ -21,3 +21,4 @@
 #-renamesourcefileattribute SourceFile
 
 -keep class com.kunminx.player.bean.** {*;}
+-keep class com.sothree.slidinguppanel.** { *; }

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 import com.zhang.architecture.utils.Utils
+import com.zhang.mymvvm.bridge.player.PlayerManager
 
 class App : Application(), ViewModelStoreOwner {
 
@@ -19,7 +20,7 @@ class App : Application(), ViewModelStoreOwner {
 
         Utils.init(this)
         mAppViewModelStore = ViewModelStore()
-
+    PlayerManager.instance.init(this)
     }
     //暴露给baseActivity和baseFragment使用的
     fun getAppViewModelProvider(activity: Activity): ViewModelProvider {

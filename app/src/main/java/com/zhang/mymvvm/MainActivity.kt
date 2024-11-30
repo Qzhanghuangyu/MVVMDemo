@@ -24,13 +24,18 @@ class MainActivity : BaseActivity() {
         mainBinding?.lifecycleOwner = this
         mainBinding?.vm = mainActivityViewModel
 
-        mSharedViewModel.activityCanBeClosedDirectly.observe(this, { aBoolean->
+
+        mSharedViewModel.activityCanBeClosedDirectly.observe(this, { aBoolean ->
             // 先不写，作用不大，以后扩展用的
             Log.d(
                 Configs.TAG,
                 if (aBoolean) "中控中心 我知道了，原来播放条被收缩了" else "中控中心 我知道了，原来播放条被展开了"
             )
 
+        })
+
+        mSharedViewModel.session.observe(this, {
+            Log.d(Configs.TAG, it.toString())
         })
 
 

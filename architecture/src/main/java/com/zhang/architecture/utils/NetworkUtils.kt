@@ -375,10 +375,10 @@ class NetworkUtils private constructor() {
                         } else {
                             if (!isIPv4) {
                                 val index = hostAddress.indexOf('%')
-                                return if (index < 0) hostAddress.toUpperCase() else hostAddress.substring(
-                                    0,
-                                    index
-                                ).toUpperCase()
+                                return if (index < 0) hostAddress.uppercase(Locale.getDefault()) else hostAddress.substring(
+                                                                0,
+                                                                index
+                                                            ).uppercase(Locale.getDefault())
                             }
                         }
                     }

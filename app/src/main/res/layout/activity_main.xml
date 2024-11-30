@@ -14,46 +14,47 @@
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/dl"
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         allowDrawerOpen="@{vm.allowDrawerOpen}"
         isOpenDrawer="@{vm.openDrawer}"
-        tools:context=".MainActivity">
+      >
 
-        <androidx.slidingpanelayout.widget.SlidingPaneLayout
+        <com.sothree.slidinguppanel.SlidingUpPanelLayout
             android:id="@+id/sliding_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="bottom"
             sothree:umanoDragView="@+id/slide_fragment_host"
-            sothree:umanoOverlay="false"
             sothree:umanoPanelHeight="@dimen/sliding_up_header"
-            sothree:umanoShadowHeight="5dp">
+            sothree:umanoShadowHeight="4dp"
+           >
             <!--   主頁的fragment-->
+
             <fragment
                 android:id="@+id/main_fragment_host"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
-                app:defaultNavHost="true"
-                app:navGraph="@navigation/nav_main"
 
-                ></fragment>
-            <!--   底部播放條的-->
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_main" />
+
+            <!-- 底部播放条 底部播放项，非常的重要
+                 nav_slide（播放条播放界面）
+             -->
             <fragment
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
                 android:id="@+id/slide_fragment_host"
                 android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_gravity="start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
                 app:defaultNavHost="true"
-                app:navGraph="@navigation/nav_slide"
-                >
+                app:navGraph="@navigation/nav_slide" />
 
-
-            </fragment>
-        </androidx.slidingpanelayout.widget.SlidingPaneLayout>
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
         <fragment
             android:id="@+id/drawer_fragment_host"
             android:name="androidx.navigation.fragment.NavHostFragment"

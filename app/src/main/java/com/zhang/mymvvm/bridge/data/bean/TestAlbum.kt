@@ -22,7 +22,7 @@ class TestAlbum : BaseAlbumItem<TestAlbum.TestMusic, TestAlbum.TestArtist>() {
     }
 
 
-    class TestMusic : BaseMusicItem<TestArtist?>() {
+    class TestMusic : BaseMusicItem<TestArtist>() {
         var songMid: String? = null
     }
 

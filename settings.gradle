@@ -25,3 +25,5 @@ rootProject.name = "MyMvvm"
 include ':app'
 
 include ':architecture'
+//include ':network'
+

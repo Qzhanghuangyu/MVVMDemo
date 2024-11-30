@@ -1,7 +1,9 @@
 package com.zhang.mymvvm.base
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.zhang.architecture.bridge.callback.UnPeekLiveData
+import com.zhang.mymvvm.bridge.data.login_register.Session
 
 /**
  * SharedViewModel的职责是用于 页面通信的
@@ -32,4 +34,6 @@ class SharedViewModel : ViewModel() {
 
     // 开启和关闭 卡片相关的状态，如果发生改变 会和 allowDrawerOpen 挂钩 (后续的扩展 用的字段)
     val enableSwipeDrawer = UnPeekLiveData<Boolean>()
+
+    val session = MutableLiveData<Session>()
 }
