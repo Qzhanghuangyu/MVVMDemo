@@ -45,6 +45,9 @@ class MainActivity : BaseActivity() {
             if (it != null) "我是第1次提交  " else "你说呢 "
             if (it != null) "我是第1次提交  " else "你说呢 "
             if (it != null) "我是第1次提交  " else "你说呢 "
+            if (it != null) "我是第3次提交  " else "你说呢 "
+            if (it != null) "我是第3次提交  " else "你说呢 "
+            if (it != null) "我是第3次提交  " else "你说呢 "
 
         })
 
