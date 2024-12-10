@@ -30,11 +30,14 @@ class MainActivity : BaseActivity() {
             Log.d(
                 Configs.TAG,
                 if (aBoolean) "我是第一次提交  " else "你说呢 "
+
             )
         })
 
         mSharedViewModel.session.observe(this, {
             Log.d(Configs.TAG, it.toString())
+
+            if (it != null) "我是第二次提交  " else "你说呢 "
         })
 
 
@@ -49,11 +52,6 @@ class MainActivity : BaseActivity() {
             mainActivityViewModel!!.allowDrawerOpen.value = it
 
         })
-
-
-
-
-
 
 
     }
