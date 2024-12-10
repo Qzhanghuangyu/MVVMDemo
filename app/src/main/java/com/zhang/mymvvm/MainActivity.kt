@@ -29,7 +29,7 @@ class MainActivity : BaseActivity() {
             // 先不写，作用不大，以后扩展用的
             Log.d(
                 Configs.TAG,
-                if (aBoolean) "中控中心 我知道了，原来播放条被收缩了" else "中控中心 我知道了，原来播放条被展开了"
+                if (aBoolean) "哈哈我来测试一下 " else "你说呢 "
             )
 
         })
