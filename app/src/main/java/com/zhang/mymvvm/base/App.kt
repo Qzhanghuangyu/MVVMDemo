@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
+import com.alibaba.android.arouter.BuildConfig
+import com.alibaba.android.arouter.launcher.ARouter
 import com.zhang.architecture.utils.Utils
 import com.zhang.mymvvm.bridge.player.PlayerManager
 
@@ -20,8 +22,16 @@ class App : Application(), ViewModelStoreOwner {
 
         Utils.init(this)
         mAppViewModelStore = ViewModelStore()
-    PlayerManager.instance.init(this)
+        PlayerManager.instance.init(this)
+
+        if (BuildConfig.DEBUG) {
+            ARouter.openLog()     // 打印日志
+            ARouter.openDebug()   // 开启调试模式
+        }
+
+        ARouter.init(this)  // 初始化 Arouter
     }
+
     //暴露给baseActivity和baseFragment使用的
     fun getAppViewModelProvider(activity: Activity): ViewModelProvider {
 

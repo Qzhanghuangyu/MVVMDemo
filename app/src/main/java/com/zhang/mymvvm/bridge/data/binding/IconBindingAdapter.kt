@@ -1,6 +1,8 @@
 package com.zhang.mymvvm.bridge.data.binding
 
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 import com.zhang.architecture.ui.materlibicon.MaterialDrawableBuilder
 import com.zhang.architecture.ui.materlibicon.MaterialIconView
 import com.zhang.mymvvm.ui.view.PlayPauseView
@@ -27,4 +29,6 @@ object IconBindingAdapter {
     fun setIcon(view: MaterialIconView, iconValue: MaterialDrawableBuilder.IconValue?) {
         view.setIcon(iconValue)
     }
+
+
 }

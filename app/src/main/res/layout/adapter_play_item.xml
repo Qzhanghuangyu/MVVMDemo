@@ -21,6 +21,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_cover"
             android:layout_width="56dp"
+
             android:layout_height="56dp"
             android:layout_marginStart="12dp"
             android:scaleType="centerCrop"
@@ -44,8 +45,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:textSize="18sp"
+
                 android:textColor="@color/white"
-                tools:text="title" />
+            />
 
             <TextView
                 android:id="@+id/tv_artist"
@@ -54,8 +56,9 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="4dp"
                 android:textSize="14sp"
+
                 android:textColor="@color/white"
-                tools:text="summary" />
+             />
 
         </LinearLayout>
         <!-- 右手边的图标，播放的状态图标哦 -->
