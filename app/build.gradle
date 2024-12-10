@@ -81,4 +81,8 @@ dependencies {
 //    implementation libs.kotlin.stdLib
 //    implementation libs.kotlinx.coroutines
 
+
+    implementation 'com.alibaba:arouter-api:1.5.2'  // Arouter API
+    kapt 'com.alibaba:arouter-compiler:1.5.2'  // 编译时注解处理器
+
 }

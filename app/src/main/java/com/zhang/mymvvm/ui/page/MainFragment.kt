@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.zhang.mymvvm.R
 import com.zhang.mymvvm.base.BaseFragment
 import com.zhang.mymvvm.bridge.data.bean.TestAlbum
 import com.zhang.mymvvm.bridge.player.PlayerManager
+import com.zhang.mymvvm.bridge.state.ItemViewModel
 import com.zhang.mymvvm.bridge.state.MainViewModel
 import com.zhang.mymvvm.bridge.state.MusicRequestViewModel
 import com.zhang.mymvvm.databinding.AdapterPlayItemBinding
@@ -25,8 +25,10 @@ class MainFragment : BaseFragment() {
 
     private var musicRequestViewModel: MusicRequestViewModel? = null
 
-    private var adapter: SimpleBaseBindingAdapter<TestAlbum.TestMusic?, AdapterPlayItemBinding?>? =
-        null
+    private  var itemViewModel:ItemViewModel? = null
+
+  private var adapter: SimpleBaseBindingAdapter<TestAlbum.TestMusic?, AdapterPlayItemBinding?>? =
+       null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +36,7 @@ class MainFragment : BaseFragment() {
         mainViewModel = getFragmentViewModelProvider(this).get(MainViewModel::class.java)
         musicRequestViewModel =
             getFragmentViewModelProvider(this).get(MusicRequestViewModel::class.java)
-
+        itemViewModel = getFragmentViewModelProvider(this).get(ItemViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -55,36 +57,38 @@ class MainFragment : BaseFragment() {
         mainViewModel!!.initTabAndPage.set(true)
         mainViewModel!!.pageAssetPath.set("JetPack之 WorkManager.html")
 
-        adapter = object : SimpleBaseBindingAdapter<TestAlbum.TestMusic?, AdapterPlayItemBinding?>(
-            context,
-            R.layout.adapter_play_item
-        ) {
-            override fun onSimpleBindItem(
-                binding: AdapterPlayItemBinding?,
-                item: TestAlbum.TestMusic?,
-                holder: RecyclerView.ViewHolder?
-            ) {
-                binding?.tvTitle?.text = item?.title
-                binding?.tvArtist?.text = item?.artist?.name
-                Glide.with(binding?.ivCover!!.context).load(item?.coverImg)
-                    .into(binding.ivCover) // 左右边的图片
-                // 歌曲下标记录
-                 val currentIndex = PlayerManager.instance.albumIndex // 歌曲下标记录
+          adapter = object : SimpleBaseBindingAdapter<TestAlbum.TestMusic?, AdapterPlayItemBinding?>(
+              context,
+              R.layout.adapter_play_item
+          ) {
+              override fun onSimpleBindItem(
+                  binding: AdapterPlayItemBinding?,
+                  item: TestAlbum.TestMusic?,
+                  holder: RecyclerView.ViewHolder?
+              ) {
+                  binding?.tvTitle?.text = item?.title
+                  binding?.tvArtist?.text = item?.artist?.name
+                  Glide.with(binding?.ivCover!!.context).load(item?.coverImg)
+                      .into(binding.ivCover) // 左右边的图片
+                  // 歌曲下标记录
+                   val currentIndex = PlayerManager.instance.albumIndex // 歌曲下标记录
 
-                // 播放的标记
-                binding.ivPlayStatus.setColor(
-                    if (currentIndex == holder ?.adapterPosition) resources.getColor(R.color.colorAccent) else Color.TRANSPARENT
-                ) // 播放的时候，右变状态图标就是红色， 如果对不上的时候，就是没有
+                  // 播放的标记
+                  binding?.ivPlayStatus?.setColor(
+                      if (currentIndex == holder ?.adapterPosition) resources.getColor(R.color.colorAccent) else Color.TRANSPARENT
+                  ) // 播放的时候，右变状态图标就是红色， 如果对不上的时候，就是没有
 
-                binding.rootView.setOnClickListener {
-                    Toast.makeText(context, "播放音乐", Toast.LENGTH_LONG).show()
+                  binding?.rootView?.setOnClickListener {
+                      Toast.makeText(context, "播放音乐", Toast.LENGTH_LONG).show()
 
-                      PlayerManager.instance.playAudio(holder !!.adapterPosition)
-                }
+                        PlayerManager.instance.playAudio(holder !!.adapterPosition)
+                  }
 
-            }
+              }
 
-        }
+          }
+
+
 
         PlayerManager.instance.changeMusicResult.observe(viewLifecycleOwner, {
             adapter?.notifyDataSetChanged()
@@ -101,12 +105,15 @@ class MainFragment : BaseFragment() {
         musicRequestViewModel!!.freeMusicesLiveData!!.observe(viewLifecycleOwner,
             { musicAlbum: TestAlbum? ->
                 if (musicAlbum != null && musicAlbum.musics != null) {
-                    adapter?.list = musicAlbum.musics
-                    adapter?.notifyDataSetChanged()
+                    adapter ?.list = musicAlbum.musics // 数据加入适配器
+                    adapter ?.notifyDataSetChanged()
+
+                    //adapter?.notifyDataSetChanged()
 
                     // 播放相关的业务需要这个数据
                     if (PlayerManager.instance.album == null ||
-                        PlayerManager.instance.album !!.albumId != musicAlbum.albumId) {
+                        PlayerManager.instance.album!!.albumId != musicAlbum.albumId
+                    ) {
                         PlayerManager.instance.loadAlbum(musicAlbum)
                     }
                 }

@@ -31,7 +31,7 @@ class MainActivity : BaseActivity() {
                 Configs.TAG,
                 if (aBoolean) "中控中心 我知道了，原来播放条被收缩了" else "中控中心 我知道了，原来播放条被展开了"
             )
-
+            Log.i("adjaad","哈哈我来测试一下")
         })
 
         mSharedViewModel.session.observe(this, {
@@ -50,6 +50,12 @@ class MainActivity : BaseActivity() {
             mainActivityViewModel!!.allowDrawerOpen.value = it
 
         })
+
+
+
+
+
+
 
     }
 
