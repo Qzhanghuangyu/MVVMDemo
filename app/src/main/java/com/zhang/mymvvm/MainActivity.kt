@@ -37,6 +37,7 @@ class MainActivity : BaseActivity() {
         mSharedViewModel.session.observe(this, {
             Log.d(Configs.TAG, it.toString())
 
+
             if (it != null) "我是第二次提交  " else "你说呢 "
         })
 
