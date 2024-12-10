@@ -29,10 +29,8 @@ class MainActivity : BaseActivity() {
             // 先不写，作用不大，以后扩展用的
             Log.d(
                 Configs.TAG,
-                if (aBoolean) "哈哈我来测试一下 " else "你说呢 "
+                if (aBoolean) "我是第一次提交  " else "你说呢 "
             )
-            Log.i("adjaad","哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈")
-
         })
 
         mSharedViewModel.session.observe(this, {
