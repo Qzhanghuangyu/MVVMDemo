@@ -31,7 +31,9 @@ class MainActivity : BaseActivity() {
                 Configs.TAG,
                 if (aBoolean) "哈哈我来测试一下 " else "你说呢 "
                     .
+..
 
+                    ..
             )
 
         })
