@@ -30,9 +30,7 @@ class MainActivity : BaseActivity() {
             Log.d(
                 Configs.TAG,
                 if (aBoolean) "哈哈我来测试一下 " else "你说呢 "
-                if (aBoolean) "哈哈我来测试一下 " else "你说呢 "
-                if (aBoolean) "哈哈我来测试一下 " else "你说呢 "
-                if (aBoolean) "哈哈我来测试一下 " else "你说呢 "
+
             )
 
         })
